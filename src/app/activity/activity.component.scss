@@ -1,0 +1,21 @@
+
+:host {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+}
+
+button {
+  background-color: #dc3545; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: .9rem; 
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+}

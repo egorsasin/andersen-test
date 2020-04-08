@@ -1,0 +1,15 @@
+<form [formGroup]="activityForm" (ngSubmit)="addActivity()">
+  <div class="row">
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="name" 
+        placeholder="Наименование платежа" required>
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="dailyPrice"
+        placeholder="Стоимость за день" required>
+    </div>
+    <div class="form-group">  
+      <button [disabled]="!activityForm.valid" type="submit">Добавить</button>
+    </div>
+  </div>
+</form>
