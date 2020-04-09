@@ -5,7 +5,8 @@ import { Activity } from '../shared/interfaces/activity';
 @Component({
   selector: 'app-activity',
   templateUrl: './activity.component.html',
-  styleUrls: ['./activity.component.scss']
+  styleUrls: ['./activity.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ActivityComponent{
 

@@ -21,11 +21,11 @@ export class ActivitiesService {
 
   constructor() { 
     this._state = new BehaviorSubject({ activities: [], total: 0 });
-    this.activities = this._state.pipe(
-      map((state: State) => state.activities)
-    );
     this.total = this._state.pipe(
       map((state: State) => state.total)
+    );
+    this.activities = this._state.pipe(
+      map((state: State) => state.activities)
     );
   }
 
@@ -39,9 +39,9 @@ export class ActivitiesService {
     let id: number = state.activities.reduce((acc, curr) =>
       acc > curr.id ? acc : curr.id, 0);
 
-    const shedule = new Array(12).fill(null).map(() => ({ active: false, monthlyPayment: 0 }));
+    const shedule = new Array(12).fill(null).map(() => ({ active: false }));
 
-    const activity = <Activity>{ id: ++id , ...payload, shedule }; 
+    const activity = <Activity>{ id: ++id , ...payload, shedule, subtotal: 0 }; 
     this._state.next({...state, activities: [ ...state.activities, activity ]});
   }
 
@@ -58,23 +58,16 @@ export class ActivitiesService {
     return activities.reduce((acc, curr) => acc +curr.subtotal, 0);
   }
 
-  toggleShedule(id: number, idx: number): void {
+  toggleShedule(id: number, idx: number): void { 
     if (!id) return;
 
     const { activities } = this.state;
-    const index = activities.findIndex(activity => activity.id == id);
-    const shedule = activities[index].shedule[idx];
+    const currentActivity = activities[activities.findIndex(activity => activity.id == id)];
+    const status = currentActivity.shedule[idx].active; 
 
-    if (shedule.active) {
-      shedule.active = false;
-      shedule.monthlyPayment = 0; 
-    } else {
-      shedule.active = true;
-      shedule.monthlyPayment = this.calculateMonthlyPayment(idx, activities[index].dailyPrice) 
-    }
-
-    activities[index].subtotal = activities[index].shedule.reduce(
-      (acc, item) => acc + item.monthlyPayment, 0);
+    currentActivity.subtotal += this.calculateMonthlyPayment(idx, currentActivity.dailyPrice) * (status ? -1 : 1);
+    currentActivity.shedule[idx].active = !status; 
+    
     const total: number = this.getTotal(activities); 
     this._state.next({ activities, total }); 
 

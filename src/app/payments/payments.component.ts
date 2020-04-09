@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Activity } from '../shared/interfaces/activity';
@@ -7,7 +7,8 @@ import { ActivitiesService } from '../shared/services/activities.service';
 @Component({
   selector: 'app-payments',
   templateUrl: './payments.component.html',
-  styleUrls: ['./payments.component.scss']
+  styleUrls: ['./payments.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PaymentsComponent implements OnInit {
 
