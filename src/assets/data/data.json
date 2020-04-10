@@ -1,0 +1,92 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "name": "Интернет",
+      "dailyPrice": 10,
+      "subtotal": 920,
+      "shedule": [
+        {
+          "active": false
+        },
+        {
+          "active": false
+        },
+        {
+          "active": false
+        },
+        {
+          "active": true
+        },
+        {
+          "active": false
+        },
+        {
+          "active": false
+        },
+        {
+          "active": true
+        },
+        {
+          "active": false
+        },
+        {
+          "active": false
+        },
+        {
+          "active": true
+        },
+        {
+          "active": false
+        },
+        {
+          "active": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Домашний телефон",
+      "dailyPrice": 5,
+      "subtotal": 770,
+      "shedule": [
+        {
+          "active": false
+        },
+        {
+          "active": false
+        },
+        {
+          "active": true
+        },
+        {
+          "active": false
+        },
+        {
+          "active": false
+        },
+        {
+          "active": true
+        },
+        {
+          "active": true
+        },
+        {
+          "active": false
+        },
+        {
+          "active": false
+        },
+        {
+          "active": true
+        },
+        {
+          "active": false
+        },
+        {
+          "active": true
+        }
+      ]
+    }
+  ]
+}

@@ -25,8 +25,8 @@ export class FormComponent implements OnInit {
   addActivity() {
     if (this.activityForm.valid) {
       const values = this.activityForm.value;
-      this.activitiesService.addActivity({ ...values, dailyPrice: +values.dailyPrice }); 
-      this.activityForm.reset(); 
+      this.activitiesService.addActivity({ ...values, dailyPrice: +values.dailyPrice });
+      this.activityForm.reset();
     }
   }
 

@@ -44,6 +44,7 @@
   },
   "jest": {
     "preset": "jest-preset-angular",
+    "collectCoverage": true,
     "setupFilesAfterEnv": [
       "<rootDir>/setupJest.ts"
     ],

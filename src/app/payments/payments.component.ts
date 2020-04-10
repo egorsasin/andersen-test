@@ -12,10 +12,10 @@ import { ActivitiesService } from '../shared/services/activities.service';
 })
 export class PaymentsComponent implements OnInit {
 
-  public headers = ['Наименование платежа', 'Стоимость', 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 
+  public headers = ['Наименование платежа', 'Стоимость', 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
     'Июль', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек', 'Удалить' ];
 
-  public activities: Observable<Activity[]>;  
+  public activities: Observable<Activity[]>;
   public total: Observable<number>;
 
   constructor(
@@ -23,12 +23,12 @@ export class PaymentsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.activities = this.activitiesService.activities
+    this.activities = this.activitiesService.activities;
     this.total = this.activitiesService.total;
   }
-  
-  identify(index, item: Activity){
-    return item.id; 
+
+  identify(index, item: Activity) {
+    return item.id;
   }
 
 }

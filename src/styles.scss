@@ -32,6 +32,26 @@
     text-align: center;
   }
 
+  .table-header {
+    display: table-row;
+    .cell {
+      background-color: #e5e5e5;
+    }
+  }
+
+  .table-row {
+    display: table-row;
+    &:nth-child(2n + 1) {
+      .cell {
+        background-color: #f7f7f7;
+      }
+    }
+    &:nth-child(1) {
+      background: #666; 
+      color: inherit; 
+     } 
+  }  
+
 }
 
 

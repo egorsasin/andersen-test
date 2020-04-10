@@ -1,11 +1,11 @@
 
   <div class="table">
-    <div class="table-row">
-      <div class="cell header" *ngFor="let header of headers">
+    <div class="table-header">
+      <div class="cell" *ngFor="let header of headers">
         {{ header }}
       </div>
     </div>
-    <app-activity *ngFor="let activity of activities | async; trackBy: identify" [activity]="activity"></app-activity>
+    <div app-activity class="table-row" *ngFor="let activity of activities | async; trackBy: identify" [activity]="activity"></div>
   </div>
   <div class="total">
     Израсходовано средств: <span>{{ total | async }}</span>

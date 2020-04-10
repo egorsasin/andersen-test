@@ -14,9 +14,9 @@ describe('ActivityService', () => {
     const expectedActivity = { name: 'Test activity', dailyPrice: 10 };
     const service: ActivitiesService = TestBed.get(ActivitiesService);
     service.activities.subscribe(
-      activities => { 
+      activities => {
         expect(activities.length).toEqual(1),
-        expect(activities[0].id).toEqual(1)
+        expect(activities[0].id).toEqual(1);
       },
       fail
     );
@@ -34,7 +34,7 @@ describe('ActivityService', () => {
       total => expect(total).toEqual(310),
       fail
     );
-    
+
   });
 
   it('should remove activity', () => {
@@ -51,7 +51,7 @@ describe('ActivityService', () => {
       activities => expect(activities.length).toEqual(0),
       fail
     );
-    
+
   });
 
 });
