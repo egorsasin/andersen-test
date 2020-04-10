@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 
 import InitJson from '../../../assets/data/data.json';
 import { Activity } from '../interfaces/activity';
@@ -27,7 +27,8 @@ export class ActivitiesService {
       map((state: State) => state.activities)
     );
     this.total = this._state.pipe(
-      map((state: State) => this.getTotal(state.activities))
+      map((state: State) => this.getTotal(state.activities)),
+      shareReplay(1),
     );
   }
 
