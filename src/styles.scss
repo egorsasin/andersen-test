@@ -31,17 +31,12 @@
   overflow: hidden;
 }
 
-.loader,
-.loader:after {
+.loader {
   border-radius: 50%;
   width: 10em;
   height: 10em;
-}
-
-.loader {
   font-size: 10px;
   position: relative;
-  text-indent: -9999em;
   border: 1.1em solid rgba(0, 0, 0, 0.1);
   border-left: 1.1em solid #929292;
   transform: translateZ(0);
