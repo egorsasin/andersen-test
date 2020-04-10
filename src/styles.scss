@@ -19,6 +19,43 @@
   margin-right: auto;
 }
 
+.loader-container { 
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  width: 100vw; 
+  height: 100vh; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  overflow: hidden;
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+
+.loader {
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border: 1.1em solid rgba(0, 0, 0, 0.1);
+  border-left: 1.1em solid #929292;
+  transform: translateZ(0);
+  animation: spiner 1.5s infinite linear;
+}
+
+@keyframes spiner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .table {
   display: table;
