@@ -1,27 +1,26 @@
-# RtTest
+# Тестовое задание - Состояние платежей
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.9.
+[Условие](https://docs.google.com/document/d/12bnOBd6HSIm__tB9yUL06f4sJJiVRm0VTPZ1PSLf0fw/edit)
 
-## Development server
+## Допущения и замечания
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Т.к в задании явно не указано, какая стоимость отображается в колонке `Стоимость` таблицы - указана стоимость за день, введенная при создании платежа.
 
-## Code scaffolding
+В задании присутствует явное противоречие. С одной стороны указано, что "Расчет общей суммы платежей осуществляется умножением стоимости платежа за месяц на количество выбранных месяцев..." с другой "стоимость за каждый месяц будет различна".
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Был выбран следующий алгоритм.
 
-## Build
+Расчет стоимости услуги за месяц при установки чекбокса рассчитывается путем умножения стоимости платежа за день (введенную при создании платежа) умноженной на количество календарных дней в выбранном месяце текущего года.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Общая сумма рассчитывается путем сложения стоимости платежа за месяцы, в которых платеж активен, (стоимость платежа за год) с дальнейшим суммированием годовой стоимости каждого платежа.
 
-## Running unit tests
+## Установка и сборка проекта
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Запуск веб-сервера для разработки клиентской части: `ng serve`
 
-## Running end-to-end tests
+Сервер будет запущен по адресу: `http://localhost:4200`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Запуск unit тестов [Jest](https://github.com/facebook/jest): `npm run test`.
 
-## Further help
+Развернутый проект: `http://46.149.80.200:8080/`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

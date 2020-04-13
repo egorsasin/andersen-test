@@ -57,6 +57,7 @@ export class ActivitiesService {
     return InitJson;
   }
 
+  // Add new activity
   addActivity(payload: Partial<Activity>): void {
 
     const state = this.currentState;
@@ -69,25 +70,29 @@ export class ActivitiesService {
     this._state.next({...state, activities: [ ...state.activities, activity ]});
   }
 
+  // Remove activity by Id
   removeActivity (id: number): void {
     if (!id) { return; }
     const state = this.currentState;
     const activities: Activity[] = state.activities.filter((activity: Activity) => activity.id !== id);
 
-    this.updateState({ activities });
+    this.updateState({ ...state, activities });
   }
 
+  // Tggle activity status
   toggleShedule(id: number, idx: number): void {
     if (!id) { return; }
 
-    const { activities } = this.currentState;
+    const state = this.currentState;
+    const { activities } = state;
+
     const currentActivity = activities[activities.findIndex(activity => activity.id === id)];
     const status = currentActivity.shedule[idx].active;
 
     currentActivity.subtotal += this.calculateMonthlyPayment(idx, currentActivity.dailyPrice) * (status ? -1 : 1);
     currentActivity.shedule[idx].active = !status;
 
-    this.updateState({ activities });
+    this.updateState({ ...state, activities });
 
   }
 }

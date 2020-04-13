@@ -1,14 +1,14 @@
 
-<div class="cell">
+<div class="table-cell">
   {{ activity.name }}
 </div>
-<div class="cell">
+<div class="table-cell">
   {{ activity.dailyPrice }}
 </div>
-<div *ngFor="let item of activity.shedule; let idx = index;" class="cell">
+<div *ngFor="let item of activity.shedule; let idx = index;" class="table-cell">
   <input type="checkbox" [checked]="item.active" (change)="toggle(idx)">
 </div>
-<div class="cell">
+<div class="table-cell">
   <button (click)="removeActivity()">x</button>
 </div>
 
